@@ -1,10 +1,11 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 
 class ItemAddPage extends StatelessWidget {
-  const ItemAddPage({super.key});
+  TextEditingController _controllerText = TextEditingController();
 
+  //const ItemAddPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,10 +13,10 @@ class ItemAddPage extends StatelessWidget {
         title: Text('Novo Item'),
       ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.yellow,
+          backgroundColor: Colors.green,
           child: Icon(Icons.done),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context, _controllerText.text);
           }),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,7 +27,7 @@ class ItemAddPage extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(right: 20, left: 20),
-            child: TextField(),
+            child: TextField(controller: _controllerText,),
           ),
         ],
       ),
