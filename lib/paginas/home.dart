@@ -33,16 +33,28 @@ class _MyHomePageState extends State<MyHomePage> {
             });
           },
           backgroundColor: Colors.white,
-          child: Icon(Icons.arrow_right),
+          child: Icon(Icons.add),
         ),
         body: _list.length > 0
             ? ListView.builder(
                 itemCount: _list.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text(_list[index]),
+                  return Dismissible(
+                    background: Container(
+                      child: Icon(Icons.clear_rounded),
+                      color: Colors.red,
                     ),
+                    onDismissed: (direction) {
+                      setState(() {
+                        _list.removeAt(index);
+                      });
+                    },
+
+                    child: Card(
+                      child: ListTile(
+                        title: Text(_list[index]),
+                      ),
+                    ), key: Key(_list[index]),
                   );
                 },
               )
