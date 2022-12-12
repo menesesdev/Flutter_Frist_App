@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('@meneses.dev - frist app'),
+          title: Text('@meneses.dev - first app'),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
